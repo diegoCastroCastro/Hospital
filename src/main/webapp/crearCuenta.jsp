@@ -9,6 +9,11 @@
 <title>Crear Cuenta</title>
 </head>
 <body>
+	<a href="health/index.html"><img alt="" src="img/regresa.png" style="width: 50px; margin-bottom:-50px; margin-left: 20px; margin-top: 20px;" class="img-fluid"></a>
+	<center>
+		<a href="health/index.html"><img alt="" src="img/logoH.png" style="width: 80px; margin-bottom: -60px; margin-top: 20px;" class="img-fluid"></a>
+	</center>
+
 	<form  class="form-register" method="post" onsubmit="return validar()">
 		<h4>Crear Cuenta</h4>
 		<input class="controls" type="text" name="cedula" id="cedula" placeholder="Ingrese su cedula"  maxlength="10"   pattern="[0-9]*" title="Debe solo ingresar numeros"   required/><br>
@@ -22,7 +27,7 @@
 		<input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su email" required/><br>
 		<p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
 		<input class="botons" type="submit" value="Registrar" onclick="validar">
-		<p><a href="/Hospital/index.html">¿Ya tengo cuenta?</a></p>
+		<p><a href="/Hospital/login.html">¿Ya tengo cuenta?</a></p>
 	</form>
 	
 </body>

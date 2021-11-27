@@ -16,7 +16,7 @@
 	box-shadow: 7px 13px 37px #000;
 }
 body{
-	background: url("https://i.imgur.com/HgflTDf.jpg");
+	background: url("https://fondosmil.com/fondo/6721.jpg");
 	background-size: cover;
 }
 
@@ -177,4 +177,4 @@ form.example::after {
   content: "";
   clear: both;
   display: table;
-
+}

@@ -1,4 +1,4 @@
-package ec.edu.ups.beans;
+package ec.edu.ups.model;
 
 import java.io.Serializable;
 

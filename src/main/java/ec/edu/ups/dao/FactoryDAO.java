@@ -1,5 +1,7 @@
 package ec.edu.ups.dao;
 
+
+
 public abstract class FactoryDAO {
 	
 	protected static FactoryDAO factory = new JDBCDAOFactory();
@@ -9,4 +11,5 @@ public abstract class FactoryDAO {
 	}
 	
 	public abstract void createTables();
+	public abstract PersonaDAO getUsuarioDAO();
 }

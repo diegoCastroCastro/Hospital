@@ -2,7 +2,7 @@ package ec.edu.ups.model;
 
 import java.io.Serializable;
 
-public class Paciente implements Serializable {
+public class Paciente extends Persona implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

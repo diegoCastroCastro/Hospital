@@ -1,4 +1,4 @@
-package ec.edu.ups.beans;
+package ec.edu.ups.model;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ public class Persona implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int IDPersona;
+	private Integer IDPersona;
 	private String cedula;
 	private String apellidos;
 	private String nombres;
@@ -19,7 +19,7 @@ public class Persona implements Serializable{
 			
 	}
 
-	public Persona(int iDPersona, String cedula, String apellidos, String nombres, String direccion, String telefono,
+	public Persona(Integer iDPersona, String cedula, String apellidos, String nombres, String direccion, String telefono,
 			String correo, String rol) {
 		super();
 		IDPersona = iDPersona;
@@ -32,11 +32,11 @@ public class Persona implements Serializable{
 		this.rol = rol;
 	}
 
-	public int getIDPersona() {
+	public Integer getIDPersona() {
 		return IDPersona;
 	}
 
-	public void setIDPersona(int iDPersona) {
+	public void setIDPersona(Integer iDPersona) {
 		IDPersona = iDPersona;
 	}
 
@@ -95,5 +95,14 @@ public class Persona implements Serializable{
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
+
+	
+	@Override
+	public String toString() {
+		return "Persona [IDPersona=" + IDPersona + ", cedula=" + cedula + ", apellidos=" + apellidos + ", nombres="
+				+ nombres + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", rol="
+				+ rol + "]";
+	}
+	
 
 }

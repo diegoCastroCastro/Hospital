@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet {
 	
 	private Persona persona;
 	private PersonaDAO personaDAO;
+	private List<Persona>listaPersonas;
 	
        
     /**
@@ -41,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		/*
 		String usuario = request.getParameter("email");
 		String password = request.getParameter("password");
 		
@@ -83,6 +84,18 @@ public class LoginServlet extends HttpServlet {
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/public/error.jsp");
 			d.forward(request, response);
 		}
+		*/
+		
+		request.getRequestDispatcher("/login.html").forward(request, response);
+		HttpSession session = request.getSession(true);
+		System.out.println("Session: " + session);
+		
+		if (request.getParameter("logout") != null) {
+			session.invalidate();
+			response.sendRedirect("login.html");
+		}
+		
+		
 		
 	}
 
@@ -91,6 +104,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		/*
 		String usuario = request.getParameter("email");
 		String password = request.getParameter("password");
 		
@@ -102,8 +116,8 @@ public class LoginServlet extends HttpServlet {
 		
 		if (p != null) {
 			HttpSession session = request.getSession(true);
-			session.setAttribute("persona", persona.getNombres());
-			session.setAttribute("password", persona.getCedula());
+			session.setAttribute("persona", persona.getCorreo());
+			session.setAttribute("password", persona.getPassword());
 			System.out.println("sesion TRUE");
 			
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/Pacientes/homePaciente.jsp");
@@ -114,11 +128,27 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("sesion FALSE");
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/public/error.jsp");
 			d.forward(request, response);
-		}
+		}	
+		*/
 		
+		String email = String.valueOf(request.getParameter("email"));
+		String password = String.valueOf(request.getParameter("password"));
+		String url = null;
+		HttpSession session = request.getSession(true);
 		
+		listaPersonas = personaDAO.find();
+		System.out.println(email);
+		System.out.println(password);
 		
-		
-	}
+		for (Persona persona : listaPersonas) {
+			
+			if (persona.getPassword().equals(password) && persona.getCorreo().equals(email)) {
+				System.out.println("Paciente encontrado: " + persona.toString());
+				session.setAttribute("persona", persona);
+			} else {
 
+			}
+		}
+	}
+	
 }

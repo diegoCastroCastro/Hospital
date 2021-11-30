@@ -11,5 +11,6 @@ public abstract class FactoryDAO {
 	}
 	
 	public abstract void createTables();
+	
 	public abstract PersonaDAO getUsuarioDAO();
 }

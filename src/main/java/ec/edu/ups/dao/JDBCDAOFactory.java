@@ -1,6 +1,6 @@
 package ec.edu.ups.dao;
 
-
+import ec.edu.ups.bd.JDBCPersonaDAO;
 
 public class JDBCDAOFactory extends FactoryDAO {
 
@@ -11,7 +11,7 @@ public class JDBCDAOFactory extends FactoryDAO {
 	
 	@Override
 	public PersonaDAO getUsuarioDAO() {
-		return new JDBCPersonaDAO();
+		return (PersonaDAO) new JDBCPersonaDAO();
 	}
 
 }

@@ -2,8 +2,10 @@ package ec.edu.ups.bd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 
 import io.github.cdimascio.dotenv.Dotenv;
 
@@ -36,11 +38,30 @@ public class ContextJDBC {
 		}		
 	}
 	
+	public ResultSet queryBD(String sql) {
+		try {
+			return this.statement.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.println("----WARNING (JDBC:Query)....\n" + sql + ": " + e);
+		}
+		return null;
+	}
+	
+	public boolean insertBD(String sql) {
+		try {
+			this.statement.execute(sql);
+			return true;
+		} catch (Exception e) {
+			System.out.println("----WARNING (JDBC:Update)....\n" + sql + ": " + e);
+			return false;
+		}
+	}
+	
 	protected static ContextJDBC getContextJDBC() {
 		if (jdbc == null) {
 			jdbc = new ContextJDBC();
 		}
 		return jdbc;
 	}
-
+	
 }

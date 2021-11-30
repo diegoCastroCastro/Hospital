@@ -14,13 +14,14 @@ public class Persona implements Serializable{
 	private String telefono;
 	private String correo;
 	private String rol;
+	private String password;
 	
 	public Persona() {
 			
 	}
 
-	public Persona(Integer iDPersona, String cedula, String apellidos, String nombres, String direccion, String telefono,
-			String correo, String rol) {
+	public Persona(Integer iDPersona, String cedula, String apellidos, String nombres, String direccion,
+			String telefono, String correo, String rol, String password) {
 		super();
 		IDPersona = iDPersona;
 		this.cedula = cedula;
@@ -30,6 +31,7 @@ public class Persona implements Serializable{
 		this.telefono = telefono;
 		this.correo = correo;
 		this.rol = rol;
+		this.password = password;
 	}
 
 	public Integer getIDPersona() {
@@ -102,6 +104,14 @@ public class Persona implements Serializable{
 		return "Persona [IDPersona=" + IDPersona + ", cedula=" + cedula + ", apellidos=" + apellidos + ", nombres="
 				+ nombres + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", rol="
 				+ rol + "]";
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 

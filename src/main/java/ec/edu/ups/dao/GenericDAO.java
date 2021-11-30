@@ -10,5 +10,9 @@ public interface GenericDAO<T, ID> {
 	public void update(T entity);
 	public void delete(T entity);
 	public List<T> find();
+	public T getEmailbyUsername(ID email);
+	public List<T> allSecretaria();
+	public List<T> allMedico();
+	public List<T> allAdmin();
 
 }
